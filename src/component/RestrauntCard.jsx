@@ -1,16 +1,8 @@
 import { MENU_IMG } from "../utils/constants";
-// import { AiOutlineStar } from "react-icons/ai";
-// import { Link } from "react-router-dom";
-
 const RestaurantCard = (restaurants) => {
   const { cloudinaryImageId, name, avgRating, cuisines, costForTwo, areaName ,deliveryTime} =
-  restaurants?.info;
-
-//   console.log(restaurants.name);
-// //   const { header, subHeader } = restaurants?.info?.aggregatedDiscountInfoV3;
-
-// //   console.log(restaurants);
-  
+  restaurants.info;
+  console.log(restaurants);
   
 // const truncateCuisines = (cuisines) => {
 //     return cuisines.length >= 35 ? cuisines.substring(0, 35) + "..." : cuisines

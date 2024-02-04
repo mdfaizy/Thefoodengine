@@ -1,8 +1,10 @@
-
-
+import Body from "../Body"
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>Home
+       md gul moajjam faizy
+       <Body/>
+    </div>
   )
 }
 

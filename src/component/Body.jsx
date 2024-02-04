@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import RestaurantCard from "./RestrauntCard";
+import {Link} from 'react-router-dom';
 const Body = () => {
   // const [FilteredRestaurants, setFilteredRestaurants] = useState([]);
   const [restaurant, setRestaurant] = useState([]);
-
-  // const [searchFilter, setSearchFilter] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
   useEffect(() => {
     fetchData();
   }, []);
@@ -19,7 +19,6 @@ const Body = () => {
     setRestaurant(checkData);
     // setFilteredRestaurants(checkData);
   };
-  const [searchQuery, setSearchQuery] = useState("");
   const handleSearch = () => {
     const filteredRestaurant = restaurant.filter((res) => {
       return res.info.name.toLowerCase().includes(searchQuery.toLowerCase());
@@ -135,13 +134,17 @@ Pure Veg 🥗
 Fast Delivery 🚚
 </button>
 </div>
-
 <div className="flex flex-wrap justify-between mx-14 my-8 p-4">
- 
-      
-      {restaurant?.map((restaurants) => (
-        <RestaurantCard key={restaurants?.info.name} {...restaurants} />
-      ))}
+<div className="flex flex-wrap justify-between mx-14 my-14 p-12">
+        {restaurant.map((restaurants) => (
+          <Link
+            key={restaurants.info.id}
+            to={"/restaurants/" + restaurants.info.id}
+          >
+              <RestaurantCard  {...restaurants} />
+          </Link>
+        ))}
+      </div>
        </div>
     </div>
     

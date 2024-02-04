@@ -3,19 +3,21 @@ import Home from "./component/route/Home";
 import About from "./component/route/About";
 import Contact from "./component/route/Contact";
 import Header from "./component/header/Header";
-import Body from "./component/Body";
-
-
+import Error from './component/Error';
+import RestaurantMenu from './component/RestaurantMenu';
+import Grocery from './component/Grocery'
 function App() {
   return (
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route index element={<Home />} />
+        <Route path='/err' element={<Error/>}/>
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
-      </Routes>
-      <Body />
+        <Route  path="/restaurants/:resId" element={<RestaurantMenu/>}/>
+        <Route path='/grocery' element={<Grocery/>}/>
+      </Routes>      
     </>
   );
 }
