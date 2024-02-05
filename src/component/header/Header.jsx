@@ -97,9 +97,11 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../../App.css";
 import {LOGO_URL} from '../../common/constants'
+import { useSelector } from "react-redux";
 const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
-
+//Selector
+const cartItems =useSelector((store)=>store.cart.items);
   useEffect(() => {
     console.log("useEffect");
   });
@@ -121,7 +123,7 @@ const Header = () => {
           <li>
             <Link to="/contact">Contact Us</Link>{" "}
           </li>
-          <li> Cart </li>
+          <Link to='/cart'> Cart{cartItems.length} </Link>
           <button
             className="login"
             onClick={() => {
