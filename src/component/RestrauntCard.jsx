@@ -10,10 +10,12 @@ const RestaurantCard = (restaurants) => {
   return (
 
 
-<div className="w-60 flex-col items-center shadow-lg bg-slate-200 mx-2 my-4 hover:bg-slate-400">
-      <img src={MENU_IMG +cloudinaryImageId} alt="biryani" className="p-3" />
-      <div className="m-3 p-3">
-        <h3 className="my-1 font-bold">{name}</h3>
+<div className="w-[200px] m-1 p-2 flex-col items-center shadow-lg bg-slate-200 mx-2 my-4 hover:bg-slate-400">
+      <div className="p-3 rounded-lg h-[200px]">
+      <img src={MENU_IMG +cloudinaryImageId} alt="" />
+      </div>
+      <div className="">
+        <h3 className="font-bold py-4 text-lg ">{name}</h3>
         <div className="">
                <h6 className="">
                  {avgRating}

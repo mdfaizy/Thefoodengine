@@ -108,7 +108,7 @@ const Header = () => {
     <div className="flex justify-between bg-slate-500 shadow-orange-200">
       <div className="w-20 rounded-sm">
         {/* Replace LOGO_URL with the path to your logo */}
-        <img className='logo' src={LOGO_URL} alt="Logo" />
+        <img className='p-4' src={LOGO_URL} alt="Logo" />
       </div>
       <div className="flex items-center ">
         <ul className="flex p-4 m-4 gap-4">
