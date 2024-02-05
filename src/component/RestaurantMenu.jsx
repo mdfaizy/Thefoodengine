@@ -2,9 +2,14 @@ import { useParams } from "react-router-dom";
 import useRestaurantMenu from "./hooks/useRestaurantMenu";
 import Shimmer from "./Shimmer";
 import RestaurantCategory from './RestaurantCategory';
+import { useState } from "react";
 const RestaurantMenu = () => {
 const {resId}=useParams();
   const  resInfo=useRestaurantMenu(resId);
+
+const [showIndex,setShowIndex]=useState(0)
+
+
 console.log(resId);
 if (resInfo === null) {
   return   <Shimmer/>;
@@ -64,8 +69,13 @@ console.log("gul moajjam faizy",categories)
   ))}
 </ul> */}
 
-{categories.map((category )=>(
-    <RestaurantCategory key={category?.card?.card?.title} data={category?.card?.card}/>
+{categories.map((category,index )=>(
+    <RestaurantCategory key={category?.card?.card?.title}
+     data={category?.card?.card}
+    showItems={index===showIndex?true:false}
+   setShowIndex={()=>setShowIndex(index)}
+
+    />
   ))
 }
 
