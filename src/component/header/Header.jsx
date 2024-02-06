@@ -98,32 +98,48 @@ import { Link } from "react-router-dom";
 import "../../App.css";
 import {LOGO_URL} from '../../common/constants'
 import { useSelector } from "react-redux";
+import { FaCartPlus } from "react-icons/fa";
 const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
 //Selector
-const cartItems =useSelector((store)=>store.cart.items);
-  useEffect(() => {
+// const cartItems =useSelector((store)=>store.cart.items);
+ 
+// const {cart} = useSelector((state) => state);
+
+const cart=useSelector((state) => state.cart.items);
+
+useEffect(() => {
     console.log("useEffect");
   });
 
   return (
     <div className="flex justify-between bg-slate-500 shadow-orange-200">
       <div className="w-20 rounded-sm">
-        {/* Replace LOGO_URL with the path to your logo */}
         <img className='p-4' src={LOGO_URL} alt="Logo" />
       </div>
       <div className="flex items-center ">
-        <ul className="flex p-4 m-4 gap-4">
+        <ul className="flex p-4 m-4 gap-4 text-white font-bold">
           <li>
-            <Link to="/"> Home </Link>{" "}
+            <Link to="/"> Home </Link>
           </li>
           <li>
-            <Link to="/about">About us </Link>{" "}
+            <Link to="/about">About us </Link>
           </li>
           <li>
-            <Link to="/contact">Contact Us</Link>{" "}
+            <Link to="/contact">Contact Us</Link>
           </li>
-          <Link to='/cart'> Cart{cartItems.length} </Link>
+          <Link to='/cart'>
+          <div className="relative py-1">
+            <FaCartPlus className="w-8" />
+                  {
+                    cart.length > 0 &&
+                    <span
+                    className="absolute -top-1 -right-2 bg-green-600 text-xs w-5 h-5 flex 
+                    justify-center items-center animate-bounce rounded-full text-white" 
+                    >{cart.length}</span>
+                  }
+              </div>
+             </Link>
           <button
             className="login"
             onClick={() => {
